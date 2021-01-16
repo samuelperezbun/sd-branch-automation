@@ -18,7 +18,7 @@ customer_id = central_info['customer_id']
 central = get_conn_from_file(filename=central_filename)
 
 # Rename AP using the workflow `workflows.config_apsettings_from_csv.py`
-from gateway_tunnels import gwSettingsCsv
+from csv_overrides import gwSettingsCsv
 gwSettingsCsv(conn=central, csv_filename=csv_filename, customer_id=customer_id)
 
 
