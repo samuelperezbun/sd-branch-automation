@@ -74,10 +74,10 @@ def gwSettingsCsv(conn, csv_filename: str, customer_id: str):
             }
             config_payload = {
                 "cli_cmds" : [
-                    "crypto-local ipsec-map iboss-uplink1 100",
+                    "crypto-local ipsec-map cloud-security-uplink1 100",
                     "local-fqdn " + gateway_n['1st-uplink-fqdn'],
                     "!",
-                    "crypto-local ipsec-map iboss-uplink2 100",
+                    "crypto-local ipsec-map cloud-security-uplink2 100",
                     "local-fqdn " + gateway_n['2nd-uplink-fqdn'],
                     "!"
                     ]
