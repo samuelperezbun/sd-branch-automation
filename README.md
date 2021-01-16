@@ -38,7 +38,7 @@ This script is based on the premise that you will build your own csv file (provi
 
 What I've found to be the easiest is to go to Devices > Gateways either from "Global" or from any groups or labels you may be using. Then simply click on the "Download CSV" file on the right and reorder/remove the columns in excel.
 
-![Obtain CSV](/images/obtain.csv.png)
+![Obtain CSV](images/obtain.csv.png)
 
 
 
