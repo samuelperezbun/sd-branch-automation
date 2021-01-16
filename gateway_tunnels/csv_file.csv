@@ -1,0 +1,3 @@
+mac_address,group,hostname,1st-uplink-fqdn,2nd-uplink-fqdn
+20:4c:03:40:0a:d8,California-New,GW-Samuel-LAB,gw-samuel-lab.att,gw-samuel-lab.comcast
+20:4c:03:95:e9:ce,California-LTE,SanCarlos-LTE,sancarlos-lte.att,sancarlos-lte.comcast

@@ -1,0 +1,10 @@
+{
+ "lib_path": "../",
+ "central_info": {
+                "base_url": "https://internal-apigw.central.arubanetworks.com",
+                "token": {
+                  "access_token": "<temporary-api-token>"
+                }
+              },
+  "ssl_verify": true
+}
