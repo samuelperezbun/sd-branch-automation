@@ -71,29 +71,51 @@ def gwSettingsCsv(conn, csv_filename: str, customer_id: str):
                 "cid" : customer_id,
                 "group_name" : gateway_n['group'] + "/" +  gateway_n['mac_address']
             }
-            if gateway_n['1st-uplink-fqdn']:
-                config_1st-uplink = {
+            print("Pushing configurations to Central for " + gateway_n['hostname'])
+            if '1st-uplink-fqdn' in gateway_n:
+                config_1st_uplink = {
                 "cli_cmds" : [
                     "crypto-local ipsec-map cloud-security-uplink1 100",
                     "local-fqdn " + gateway_n['1st-uplink-fqdn'],
                     "!"
                     ]
                 }
-                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_1st-uplink)
-                print("Pushed the following Config to Central:")
-                pprint(config_1st-uplink)
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_1st_uplink)
+                #print("Pushed the following Config to Central:")
+                pprint(config_1st_uplink)
 
-            if gateway_n['2nd-uplink-fqdn']:
-                config_2nd-uplink = {
+            if '2nd-uplink-fqdn' in gateway_n:
+                config_2nd_uplink = {
                 "cli_cmds" : [
-                    "crypto-local ipsec-map cloud-security-uplink1 100",
+                    "crypto-local ipsec-map cloud-security-uplink2 100",
                     "local-fqdn " + gateway_n['2nd-uplink-fqdn'],
                     "!"
                     ]
                 }
-                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_2nd-uplink)
-                print("Pushed the following Config to Central:")
-                pprint(config_2nd-uplink)
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_2nd_uplink)
+                pprint(config_2nd_uplink)
+            
+            if '3rd-uplink-fqdn' in gateway_n:
+                config_3rd_uplink = {
+                "cli_cmds" : [
+                    "crypto-local ipsec-map cloud-security-uplink3 100",
+                    "local-fqdn " + gateway_n['3rd-uplink-fqdn'],
+                    "!"
+                    ]
+                }
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_3rd_uplink)
+                pprint(config_3rd_uplink)
+
+            if '4th-uplink-fqdn' in gateway_n:
+                config_4th_uplink = {
+                "cli_cmds" : [
+                    "crypto-local ipsec-map cloud-security-uplink4 100",
+                    "local-fqdn " + gateway_n['4th-uplink-fqdn'],
+                    "!"
+                    ]
+                }
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_4th_uplink)
+                pprint(config_4th_uplink)
             #conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_payload)
 
 
