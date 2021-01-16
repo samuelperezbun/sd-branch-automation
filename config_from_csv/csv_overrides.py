@@ -67,24 +67,34 @@ def gwSettingsCsv(conn, csv_filename: str, customer_id: str):
     with open(csv_filename, newline='') as csvfile:
         gateway_info = csv.DictReader(csvfile)
         for gateway_n in gateway_info:
-            print(gateway_n)
             params = {
                 "cid" : customer_id,
                 "group_name" : gateway_n['group'] + "/" +  gateway_n['mac_address']
             }
-            config_payload = {
+            if gateway_n['1st-uplink-fqdn']:
+                config_1st-uplink = {
                 "cli_cmds" : [
                     "crypto-local ipsec-map cloud-security-uplink1 100",
                     "local-fqdn " + gateway_n['1st-uplink-fqdn'],
-                    "!",
-                    "crypto-local ipsec-map cloud-security-uplink2 100",
+                    "!"
+                    ]
+                }
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_1st-uplink)
+                print("Pushed the following Config to Central:")
+                pprint(config_1st-uplink)
+
+            if gateway_n['2nd-uplink-fqdn']:
+                config_2nd-uplink = {
+                "cli_cmds" : [
+                    "crypto-local ipsec-map cloud-security-uplink1 100",
                     "local-fqdn " + gateway_n['2nd-uplink-fqdn'],
                     "!"
                     ]
-            }
-            print("Pushed the following Config to Central:")
-            pprint(config_payload)
-            conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_payload)
+                }
+                conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_2nd-uplink)
+                print("Pushed the following Config to Central:")
+                pprint(config_2nd-uplink)
+            #conn.command(apiMethod="POST", apiPath=path, apiParams=params, apiData=config_payload)
 
 
 """
