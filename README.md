@@ -1,6 +1,6 @@
 # SD-Branch automation
 
-##General Information
+## General Information
 
 The purpose of this repository is to build a set of automation scripts that could be applied to streamline operations around the deployment and maintenance of (Aruba) SD-Branch networks. While the use of these scripts for labs or production deployments is certainly encouranged, this should by no means considered official or supported software by Aruba, a Hewlett Packard Enterprise company. 
 
