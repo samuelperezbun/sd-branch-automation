@@ -2,8 +2,9 @@
  "lib_path": "../",
  "central_info": {
                 "base_url": "https://internal-apigw.central.arubanetworks.com",
+                "customer_id": "alpha2_sub_400",
                 "token": {
-                  "access_token": "<temporary-api-token>"
+                  "access_token": "p7sZtEEY1LMQFft2clVLmL52ddW2oA5G"
                 }
               },
   "ssl_verify": true
