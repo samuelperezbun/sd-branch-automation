@@ -3,7 +3,7 @@ import sys
 
 # Create the following files by refering to the samples.
 csv_filename = "csv_file.csv"
-central_filename = "input_credentials.json"
+central_filename = "input_token_only.json"
 
 # Get instance of ArubaCentralBase from the central_filename
 from pycentral.workflows.workflows_utils import get_conn_from_file, get_file_contents
